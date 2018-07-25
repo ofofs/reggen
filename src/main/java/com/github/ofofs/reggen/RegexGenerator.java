@@ -43,13 +43,11 @@ public final class RegexGenerator {
     }
 
     private static String dealRegexp(String regex) {
-        // 去掉开头的^、结尾的$、(^和$)
         regex = regex.replaceAll("^\\^", "");
         regex = regex.replaceAll("\\(\\^", "(");
         regex = regex.replaceAll("\\$$", "");
         regex = regex.replaceAll("\\$\\)", ")");
 
-        // 转换部分特殊字符
         regex = regex.replaceAll("\\*", "{0,}");
         regex = regex.replaceAll("\\+", "{1,}");
         regex = regex.replaceAll("\\?", "{0,1}");
